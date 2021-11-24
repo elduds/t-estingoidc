@@ -22,6 +22,9 @@ jobs:
           role-to-assume: arn:aws:iam::123723535948:role/github-actions-test-role
           role-session-name: samplerolesession
           aws-region: ${{ env.AWS_REGION }}
+      - name: Get caller identity
+        run: |
+          aws sts get-caller-identity
       # Upload a file to AWS s3
       - name:  Copy index.html to s3
         run: |
