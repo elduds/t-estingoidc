@@ -20,7 +20,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@master
         with:
           role-to-assume: arn:aws:iam::123723535948:role/github-actions-test-role
-          role-session-name: samplerolesession
+          role-session-name: github-actions-elduds-t-estingoidc
           aws-region: ${{ env.AWS_REGION }}
       - name: Get caller identity
         run: |
