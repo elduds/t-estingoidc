@@ -19,7 +19,7 @@ jobs:
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@master
         with:
-          role-to-assume: arn:aws:iam::248606432711:role/ExecuteGithubActionsWithOidcRole
+          role-to-assume: arn:aws:iam::643022902296:role/RoleForGitHubActions
           role-session-name: testing-githubcomelduds
           aws-region: ${{ env.AWS_REGION }}
       - name: Get caller identity
