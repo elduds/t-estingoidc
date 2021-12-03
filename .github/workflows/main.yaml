@@ -19,13 +19,10 @@ jobs:
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@master
         with:
-          role-to-assume: arn:aws:iam::123723535948:role/github-actions-test-role
-          role-session-name: github-actions-elduds-t-estingoidc
+          role-to-assume: arn:aws:iam::941678122026:role/GitHubActions-us-east-1
+          role-session-name: testing-githubcomelduds
           aws-region: ${{ env.AWS_REGION }}
       - name: Get caller identity
         run: |
           aws sts get-caller-identity
-      # Upload a file to AWS s3
-      - name:  Copy index.html to s3
-        run: |
-          aws s3 cp ./index.html s3://${{ env.BUCKET_NAME }}/
+
