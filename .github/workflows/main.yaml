@@ -1,28 +1,24 @@
-# Sample workflow to access AWS resources when workflow is tied to branch
-# The workflow Creates static website using aws s3
-name: AWS example workflow
+name: OIDC PoC
 on:
   push
 env:
-  BUCKET_NAME : "luke-test-bucket-123723535948-ap-southeast-2"
   AWS_REGION : "us-east-1"
-# permission can be added at job level or workflow level    
+  
 permissions:
       id-token: write
       contents: write    # This is required for actions/checkout@v1
 jobs:
-  S3PackageUpload:
+  tests3ls:
     runs-on: ubuntu-latest
     steps:
-      - name: Git clone the repository
-        uses: actions/checkout@v1
       - name: configure aws credentials
         uses: aws-actions/configure-aws-credentials@master
         with:
-          role-to-assume: arn:aws:iam::152231080651:role/ExampleGithubRole
+          role-to-assume: arn:aws:iam::123723535948:policy/github-actions-test-role
           role-session-name: testing-githubcomelduds
           aws-region: ${{ env.AWS_REGION }}
       - name: Get caller identity
         run: |
           aws sts get-caller-identity
+          aws s3 ls
 
