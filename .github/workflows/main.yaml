@@ -17,7 +17,7 @@ jobs:
           role-to-assume: arn:aws:iam::123723535948:role/github-actions-test-role
           role-session-name: testing-githubcomelduds
           aws-region: ${{ env.AWS_REGION }}
-      - name: Get caller identity
+      - name: s3 ls
         run: |
           aws sts get-caller-identity
           aws s3 ls
