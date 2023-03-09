@@ -12,10 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: configure aws credentials
-        uses: aws-actions/configure-aws-credentials@master
+        uses: aws-actions/configure-aws-credentials@v2
         with:
           role-to-assume: arn:aws:iam::123723535948:role/github-actions-oidc/github-actions-dev-preprod-cicd
-          role-session-name: testing-githubcomelduds
           aws-region: ${{ env.AWS_REGION }}
       - name: s3 ls
         run: |
